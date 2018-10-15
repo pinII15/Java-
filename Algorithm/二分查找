@@ -1,0 +1,30 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ListTest {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int[] a ={0,1,2,3,4,5,6,7,8,9,10,12,15,19,50};
+        System.out.println(Arrays.toString(a));
+        System.out.println("请输入您想查找位置的数：");
+        int goal=input.nextInt();
+
+
+        System.out.println("位置为："+Sort(a,0,a.length-1,goal));
+    }
+
+
+    private static int Sort(int[] a, int low, int high, int goal) {
+        if(low<high){
+       int mid=(low+high)/2;
+       if(a[mid]==goal)
+       {return mid;}
+       else if(a[mid]<goal)
+       {
+
+           return Sort(a,mid+1,high,goal);
+       }
+       else return Sort(a,low,mid-1,goal);}
+       return -1;
+    }
+}
